@@ -1,0 +1,456 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Amazon Ember", sans-serif;
+}
+
+#root {
+    /* background: #E3E6E6; */
+    height: 100%;
+}
+
+.Navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #131921;
+    color: white;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.logo img {
+    width: 155px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.link {
+    display: flex;
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    flex-direction: column;
+    margin: 0px 14px;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    padding: 2px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.search input {
+    width: 100%;
+    height: 56%;
+    outline: none;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.search {
+    width: 100%;
+    margin: 0px 7px 0px 0px;
+    align-items: center;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.searchBtn {
+    background: #febd69;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /* top: 0px; */
+    padding: 5px 0px;
+    position: relative;
+    height: max-content;
+    width: 41px;
+    left: -1px;
+}
+
+.cart {
+    display: flex;
+    padding: 0 20px;
+    flex-direction: column;
+    padding-bottom: 5px;
+}
+
+.img_span {
+    position: relative;
+    left: -27px;
+    top: -4px;
+}
+
+.mainLink {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.backgroundLinkTxt {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.carousel-item img {
+    -webkit-mask-image: linear-gradient(to top, transparent 13%, black 38%);
+    mask-image: linear-gradient(to top, transparent 13%, black 38%);
+}
+
+.carousel {
+    top: 60px;
+}
+
+.box {
+    flex-direction: column;
+    border-radius: 3px;
+    background: #fff;
+    height: 100%;
+    /* margin-left: 1rem; */
+    margin-right: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding: 10px;
+    width: 100%;
+}
+
+.boxHeader {
+    display: flex;
+    flex-direction: column;
+    /* justify-self:flex-start; */
+    /* align-items: center; */
+    font-size: 1rem;
+}
+
+.twoBoxesContainer {
+    display: flex;
+    /* flex-wrap: wrap (for responsive purposes) */
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product img {
+    width: 12rem;
+}
+
+.container {
+    background-color: #E3E6E6;
+    display: flex;
+    min-width: 100%;
+    max-width: 100%;
+    /* width: 100%; */
+    /* padding: 0px; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.threeBoxContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.txt {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.price {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.Btn {
+    background: #FFA41C;
+    border: #FF8F00 solid 1px;
+    width: 9rem;
+    font-weight: 500;
+    padding: 0.3rem;
+    border-radius: 1.3rem;
+    color: black;
+    font-size: 14px;
+    height: max-content;
+}
+
+.Btn:hover {
+    background: #f19d1e;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    gap: 1rem;
+    background: #fff;
+    /* align-items: center; */
+    width: 350px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    justify-content: center;
+    padding: 14px 18px;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.authContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.authForm input {
+    border: none;
+    width: 100%;
+    background-color: #fff;
+    height: 31px;
+    padding: 3px 7px;
+    line-height: normal;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    font-size: 13px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
+    outline: 0;
+}
+
+.authForm button {
+    width: 100%;
+    /* border: none; */
+    outline: none;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    /* display: block; */
+    /* position: relative; */
+    overflow: hidden;
+    height: 29px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 60%) inset;
+    border-radius: 2px;
+    border: 1px solid #a88734;
+}
+
+.inputContainer {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.passwordText {
+    font-size: 11px;
+    color: #7e7e85;
+}
+
+.policy {
+    font-size: 13px;
+    margin-bottom: 1rem;
+}
+
+.inputContainer label {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.changePageLink {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .14), rgba(0, 0, 0, .03) 3px, transparent);
+    font-size: 13px;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.changePageLink a {
+    text-decoration: none;
+}
+
+.changePageLink a:hover {
+    color: rgb(255, 119, 0);
+    text-decoration: underline;
+}
+
+.cartContainer {
+    background-color: #E3E6E6;
+    min-width: 100%;
+    padding: 13px;
+    height: 100%;
+    position: absolute;
+    top: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+.cartContainers {
+    background: white;
+    min-width: 73%;
+    padding: 20px 0 15px 0;
+    height: 90%;
+    border: 1px solid #ddd;
+    background-color: #FFF;
+}
+
+.priceBox {
+    background: white;
+    width: 30%;
+    border: 1px solid #ddd;
+    height: 40%;
+    background-color: #FFF;
+    overflow: auto;
+    padding: 20px 20px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartLinkBtn{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 5px;
+    align-items: center;
+}
+h2{
+    margin-bottom: 0;
+}
+.priceTxt{
+    font-weight: 700;
+}
+.subTotalTxt{
+    line-height: 24px;
+    font-size: 18px;    
+    text-align: center;
+
+}
+.main{
+    background: #edf;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
+
+.checkbox{
+    margin: 10px 0px;
+    font-size: 14px;
+}
+.checkbox input{
+    margin-right: 4px;
+}
+.priceBox button{
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
+    background: #FFD814;
+    width: 100%;
+    border: 1px solid #FCD200;
+    padding: 4px 0px;
+    font-size: 13px;
+}
+
+.img{
+    width: 30%;
+}
+
+.img img{
+    width: 180px;
+    aspect-ratio: auto 180 / 180;
+    height: 180px;
+}
+
+.discription{
+    display: flex;
+    align-items: flex-start;
+    width: 70%;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 100%
+}
+
+.leftDiscription{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 18px!important;
+}
+.size span {
+    font-weight: 700;
+    font-size: 14px;
+} 
+.color span{
+    font-weight: 700;
+}
+.priceInDescription span{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.Products{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+
+}
+.otherDiscription{
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+}
+.delete{
+    font-size: 15px;
+    color: #0066C0;
+}
+.delete:hover{
+    text-decoration: underline;
+}
+.crudOption{
+    margin-top: 15px;
+    gap: 1rem;
+    display: flex;
+}
+
+.quantity input{
+    width: 51px;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #cac0d5;
+    padding: 2px;
+    border-radius: 6px;
+
+}
+.link:hover {
+    border: 1px solid white;
+}
