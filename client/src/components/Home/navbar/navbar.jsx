@@ -1,20 +1,18 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import logo from "../../../assets/images/amazon-logo.png";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { Navigate, useNavigate } from 'react-router-dom';
-import {Link} from "react-router-dom"
+import {useNavigate } from 'react-router-dom';
+import {Link} from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux'
+import {getItems} from "../../../states/actions/cartAction"
+
+
 
 const Navbar = () => {
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
-
-
-  const handleNavigate = (e) => {
-    console.log(e.target)
-    // navigate(`/${e.target.name}`)
-  }
-
 
   return (
 

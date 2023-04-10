@@ -8,21 +8,20 @@ const Container = () => {
         <div className="container">
 
             <div className="twoBoxesContainer">
+            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={32}  />
 
-            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={"$32"} />
-
-            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={"$32"} />
+            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={32} />
 
             </div>
 
             <div className="threeBoxContainer">
                 {/* Box one*/}
 
-                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={"$32"} />
+                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={32} />
 
-                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={"$32"} />
+                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{}} img={product1} price={32} />
 
-                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={"$32"} />
+                <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={32} />
                 
 
             </div>
@@ -30,7 +29,7 @@ const Container = () => {
 
             <div className="singleBoxContainer threeBoxContainer">
              
-            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={"$32"} />
+            <Box txt={"JOLOCHIP Hottest CHIP Madness – Last CHIP Challenge"} rating={"5"} styles={{ marginRight: "0rem" }} img={product1} price={32} />
             
             </div>
 

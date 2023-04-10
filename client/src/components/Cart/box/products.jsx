@@ -1,18 +1,18 @@
 import React from 'react';
 import jolochipPNG from "../../../assets/images/joloChip.png"
 
-const Products = () => {
+const Products = ({image, title, size, color, qty ,price }) => {
     return (
         <>
             <div className="Products">
 
                 <div className="img">
-                    <img src={jolochipPNG} alt="can't load" />
+                    <img src={image} alt="can't load" />
                 </div>
 
                 <div className="discription">
                     <div className="leftDesciption">
-                        <span className="title">Jolochip laive with crazy nuts</span>
+                        <span className="title">{title}</span>
 
                         <div className="otherDiscription">
 
@@ -22,11 +22,11 @@ const Products = () => {
                             </div>
 
                             <div className="size">
-                                <span>size:  </span> 0 months-3 months
+                                <span>size:  </span> {size}
                             </div>
 
                             <div className="color">
-                                <span>color:</span> black
+                                <span>color:</span> {color}
                             </div>
 
                         </div>
@@ -34,7 +34,7 @@ const Products = () => {
                         <div className="crudOption">
                             <div className="quantity">
 
-                                <input type="number" placeholder="Qty"/>
+                                <input type="number" placeholder="Qty" value={qty}/>
 
                         </div>
 
@@ -47,7 +47,7 @@ const Products = () => {
 
 
             <div className="priceInDescription">
-                <span>$5.00</span>
+                <span>{price}</span>
             </div>
 
         </div >
