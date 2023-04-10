@@ -15,8 +15,8 @@ const Box = ({txt,price,rating, img , styles}) => {
         <div className="box" style={styles?styles:null}>
 
         <div className="boxHeader">
-            <span className="txt">${txt}</span>
-            <span className="price">{price}</span>
+            <span className="txt">{txt}</span>
+            <span className="price">${price}</span>
             <span className="starReview">{`${rating} Star`}</span>
         </div>
 

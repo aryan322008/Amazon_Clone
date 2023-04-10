@@ -1,6 +1,6 @@
 export default (state=[], action) => {
    switch (action.type) {
-    case "FETCH":
+    case "FETCH_CART":
     return action.payload
 
     case "ADD" : 

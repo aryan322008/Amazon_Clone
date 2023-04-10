@@ -18,7 +18,10 @@ rating:{
     required:true
 },
 
-image: String,
+image: {
+  type:String,
+  default:""
+},
 
 size:{
     type: String,
@@ -29,6 +32,7 @@ color:String,
 qty:{
     type: Number,
     required:true,
+    default: 1
 },
 
   date: { type: Date, default: Date.now },

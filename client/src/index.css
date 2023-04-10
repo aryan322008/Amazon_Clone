@@ -123,12 +123,13 @@
     flex-direction: column;
     border-radius: 3px;
     background: #fff;
-    height: 100%;
     /* margin-left: 1rem; */
-    margin-right: 1rem;
+    display: flex;
     position: relative;
     margin-bottom: 1rem;
     margin-top: 0;
+    justify-content: space-around;
+    align-items: flex-start;
     padding: 10px;
     width: 100%;
 }
@@ -146,6 +147,7 @@
     /* flex-wrap: wrap (for responsive purposes) */
     justify-content: space-evenly;
     width: 100%;
+    gap: 1rem;
 }
 
 .product {
@@ -153,6 +155,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .product img {
@@ -175,6 +178,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    gap: 1rem;
 }
 
 .txt {
