@@ -1,43 +1,55 @@
-import React,{useEffect, useState} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setPriceAction } from "../../../states/actions/setPriceAction";
+import { addInCurrentOrders } from "../../../states/actions/currentOrdersActions";
+import { useNavigate } from "react-router-dom";
+import { payments } from "../../../api/index.js";
+import axios from "axios";
 
 const PriceContainer = () => {
-    const cartProducts = useSelector(state => state.cartProducts)
-    const [price, setPrice] = useState(0);
+  const cartProducts = useSelector((state) => state.cartProducts);
+  const dynamicPrice = useSelector((state) => state.price);
+  const [price, setPrice] = useState(0);
+  const [clientSecret, setClientSecret] = useState("");
 
-    useEffect(() => {
-        cartProducts.map(element => {
-            setPrice((prev)=>{
-               return Number(prev) + element.price;
-            })
-        });
-    }, [cartProducts]);
+  const navigate = useNavigate();
 
-    return (
-        <div className="priceBox">
+  const user = localStorage.getItem("token");
 
-            <div className="subTotalTxt">
+  const dispatch = useDispatch();
 
-                <span className="maintxt">
-                    Subtotal {cartProducts.length}
-                </span>
+  useEffect(() => {
+    const price = cartProducts.reduce((prevVal, currentVal) => {
+      return prevVal + currentVal.item.price * currentVal.qty;
+    }, 0); //0 is default value,
+    dispatch(setPriceAction(price));
+  }, [cartProducts]);
 
-                <span className="priceTxt">
-                    : {price}
-                </span>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-            </div>
+    const ordersArray = cartProducts.map((product) => {
+      return { item: product.item._id, qty: product.qty };
+    });
 
-            <div className="checkbox">
-                <input type="checkbox" name="check" id="checkBox" />
-                <span>This order contains a gift</span>
-            </div>
+    dispatch(addInCurrentOrders(ordersArray));
 
-            <button>Proceed to Buy</button>
+    navigate("/orders");
+  };
 
-        </div>
-    )
-}
+  return (
+    <div className="priceBox">
+      <div className="subTotalTxt">
+        <span className="maintxt">Subtotal {cartProducts.length}</span>
+
+        <span className="priceTxt">: Rs.{dynamicPrice}</span>
+      </div>
+
+      <form onSubmit={handleSubmit} className="form">
+        <button type="submit">Proceed to Buy</button>
+      </form>
+    </div>
+  );
+};
 
 export default PriceContainer;

@@ -4,7 +4,7 @@ import ProductsContainer from './products_container/products_container';
 
 const Cart = () => {
     return (
-        <div className="container cartContainer">
+        <div className="cartContainer">
 
             <ProductsContainer />
             <PriceContainer />

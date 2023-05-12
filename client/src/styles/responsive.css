@@ -1,0 +1,180 @@
+@media screen and (max-width: 470px) {
+  .Products {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .box{
+    margin-left: var(--margin);
+  }
+
+  .products_header{
+    margin-top: var(--margin);
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+  .title{
+    text-align: center;
+    display: block
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .formContainer {
+    width: 100%;
+  }
+
+  .authContainer {
+    padding: 6px;
+  }
+  .subTotal{
+    font-size: 1.2rem;
+  }
+  .display{
+    display: none;
+  }
+  .ordersHeader h2{
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 726px) {
+  :root {
+    --margin: 0.5rem;
+  }
+  .txt {
+    font-size: 14px;
+  }
+  .price {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .product img {
+    width: 9rem;
+  }
+  .Container{
+    top: -12px;
+  }
+  .Products{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 524px) {
+  .twoBoxesContainer {
+    flex-wrap: wrap;
+  }
+  .threeBoxContainer {
+    flex-wrap: wrap;
+  }
+  .txt {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .product img {
+    width: 7rem;
+  }
+  .carousel {
+    top: 46px;
+  }
+  .Navbar{
+    height: 46px;
+  }
+
+  .search input{
+    height:100%;
+  }
+
+  .searchBtn {
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .search{
+    height: 25px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .nav-links {
+    position: absolute;
+    width: 40%;
+    top: 68px;
+    display: flex;
+    margin-top: 0px;
+    box-shadow: 0 2rem 4rem hsl(240deg 9% 4%);
+    background: #131921;
+    justify-content: center;
+    transition: all 0.4s ease-in-out, visibility 0s linear 0.2s;
+    flex-direction: column;
+  }
+
+  .a-tag {
+    background-color: transparent;
+    border-bottom: 1px solid #585858;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .nav-links[data-expanded="true"] {
+    width: 88%;
+  }
+
+  .logo img {
+    width: 122px;
+  }
+  .img_span {
+    left: -22px;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .Container {
+    margin-top: 2rem;
+  }
+  .ordersHeader a{
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 690px) {
+  .Container {
+    margin-top: 2rem;
+  }
+  .discription{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .cartContainer {
+    flex-direction: column-reverse;
+    margin-top: 2rem;
+  }
+  .img{
+    width: fit-content;
+  }
+  .priceBox{
+    width: 100%;
+  }
+  .m-top{
+    margin-top: 0px;
+  }
+}

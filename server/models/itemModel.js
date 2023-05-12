@@ -1,44 +1,42 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const itemSchema = new Schema({
   title: {
     type: String,
-    required:true
-},
+    required: true,
+  },
+
   author: String,
 
-  price:{
+  price: {
     type: Number,
-    required:true
-},
+    required: true,
+  },
 
-rating:{
-    type: Number,
-    required:true
-},
-
-image: {
-  type:String,
-  default:""
-},
-
-size:{
+  image: {
     type: String,
-},
+    default: "",
+    required: true,
+  },
 
-color:String,
+  description: {
+    type: String,
+    require:true, 
+  },
 
-qty:{
-    type: Number,
-    required:true,
-    default: 1
-},
+  ageRating:{
+    type: String,
+    require:true, 
+    default:0
+  },
+  colors: String,
 
   date: { type: Date, default: Date.now },
 });
 
+itemSchema.index({ author:"text", title: 'text', description: 'text'});
 
-const itemModal = mongoose.model('itemModal', itemSchema);
+const itemModal = mongoose.model("itemModal", itemSchema);
 
-export default itemModal
+export default itemModal;
