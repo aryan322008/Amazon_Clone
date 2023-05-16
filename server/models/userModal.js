@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
-// import itemModal from './itemModel';
 
 const userSchema = new Schema({
   name: {
@@ -52,6 +51,9 @@ const userSchema = new Schema({
   date: {
     type: Date,
     default: Date.now,
+  },
+  verification_code:{
+    type: String
   },
 });
 

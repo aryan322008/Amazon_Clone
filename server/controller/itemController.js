@@ -51,7 +51,7 @@ const addItem = async (req, res) => {
 };
 
 const addCartItem = async (req, res) => {
-  const { id } = req.body;
+  const { id, qty } = req.body;
 
   try {
     const item = await itemModal.findById(id);
@@ -66,12 +66,13 @@ const addCartItem = async (req, res) => {
       return res.status(404).json({ message: "user not found" });
     }
 
+    
     const updatedCart = await userModal
       .findByIdAndUpdate(
         req.user,
         {
           $push: {
-            cart: { qty: 1, item: id },
+            cart: { qty: qty || 1, item: id },
           },
         },
         { new: true }
@@ -96,7 +97,6 @@ const getCartItem = async (req, res) => {
       return res.status(404).json({ message: "user not found" });
     }
 
-    console.log(user);
     res.send(user.cart);
   } catch (error) {
     res.status(404).json({ message: error });
@@ -114,11 +114,15 @@ const deleteCartItem = async (req, res) => {
     }
 
     const updatedCart = await userModal
-      .findByIdAndUpdate(req.user, {
-        $pull: {
-          cart: { _id: new mongoose.Types.ObjectId(id) },
+      .findByIdAndUpdate(
+        req.user,
+        {
+          $pull: {
+            cart: { _id: new mongoose.Types.ObjectId(id) },
+          },
         },
-      }, {new:true})
+        { new: true }
+      )
       .populate({
         path: "cart.item",
       });
@@ -171,7 +175,6 @@ const myProducts = async (req, res) => {
 const delete_my_products = async (req, res) => {
   const { id } = req.params;
 
-  console.log(id);
   try {
     const user = await userModal.findById(req.user);
 

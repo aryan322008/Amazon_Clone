@@ -21,10 +21,10 @@ const ProductDetails = () => {
       style={{ justifyContent: "center" }}
     >
       <div
-        className="cartContainers h-100"
+        className="cartContainers"
         style={{ height: "fitContent", width: "100%" }}
       >
-        <div className="cart flex-row" style={{gap:"1rem", padding:"0px 10px"}}>
+        <div className="cart flex-column" style={{gap:"1rem", padding:"0px 10px"}}>
           <Details
             image={details.image}
             title={details.title}

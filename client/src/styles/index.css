@@ -362,7 +362,7 @@ body {
 
 .priceBox {
   background: white;
-  width: 30%;
+  width: 50%;
   border: 1px solid #ddd;
   height: 40%;
   background-color: #fff;
@@ -606,13 +606,13 @@ h2 {
   justify-content: space-between;
 }
 .productCarouselButtons {
-     color: #999797;
-    font-size: 4rem;
-    background: none;
-    border: none;
+  color: #999797;
+  font-size: 4rem;
+  background: none;
+  border: none;
 }
 .detailsContainer {
-  height: 100%;
+  height: fit-content;
   top: 0px;
   padding-top: 73px;
 }
@@ -627,24 +627,51 @@ h2 {
 }
 .image {
   display: flex;
-  width: 100%;
+  width: 45%;
   justify-content: center;
   align-items: center;
 }
 .image img {
   width: 100%;
-  height: 398px;
+  height: 425px;
 }
 
 .desc {
   font-size: 15px;
+  margin-top: 1rem;
   color: #101010;
 }
 .detailsActions {
-  width: 90%;
+  width: 38%;
   height: 75%;
+  position: relative;
+  bottom: 38px;
 }
 .f-14 {
   color: grey;
   font-size: 14px;
+}
+.details {
+  width: 39vw;
+  gap: var(--margin);
+}
+.desc span {
+  font-size: 1rem;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid grey;
+}
+.desc p {
+  color: #4a4a4a;
+  font-size: 13px;
+}
+.forgotPass{
+  font-size: 11px;
+  color: #0066c0;
+  cursor: pointer;
+}
+.forgotPass:hover{
+  text-decoration: underline;
 }

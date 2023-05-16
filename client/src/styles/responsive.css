@@ -4,37 +4,18 @@
     flex-direction: column;
   }
 
-  .box{
+  .box {
     margin-left: var(--margin);
   }
 
-  .products_header{
+  .products_header {
     margin-top: var(--margin);
     font-size: 20px;
     margin-bottom: 1rem;
   }
-  .title{
+  .title {
     text-align: center;
-    display: block
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .formContainer {
-    width: 100%;
-  }
-
-  .authContainer {
-    padding: 6px;
-  }
-  .subTotal{
-    font-size: 1.2rem;
-  }
-  .display{
-    display: none;
-  }
-  .ordersHeader h2{
-    font-size: 1rem;
+    display: block;
   }
 }
 
@@ -52,10 +33,10 @@
   .product img {
     width: 9rem;
   }
-  .Container{
+  .Container {
     top: -12px;
   }
-  .Products{
+  .Products {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -82,23 +63,23 @@
   .carousel {
     top: 46px;
   }
-  .Navbar{
+  .Navbar {
     height: 46px;
   }
 
-  .search input{
-    height:100%;
+  .search input {
+    height: 100%;
   }
 
   .searchBtn {
-    height:100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
 
-  .search{
+  .search {
     height: 25px;
   }
 }
@@ -144,21 +125,12 @@
   }
 }
 
-@media screen and (max-width: 460px) {
-  .Container {
-    margin-top: 2rem;
-  }
-  .ordersHeader a{
-    font-size: 12px;
-  }
-}
-
 
 @media screen and (max-width: 690px) {
   .Container {
     margin-top: 2rem;
   }
-  .discription{
+  .discription {
     width: 100%;
   }
 }
@@ -168,13 +140,89 @@
     flex-direction: column-reverse;
     margin-top: 2rem;
   }
-  .img{
+  .img {
     width: fit-content;
   }
-  .priceBox{
+  .priceBox {
     width: 100%;
   }
-  .m-top{
+  .m-top {
     margin-top: 0px;
+  }
+  .image img {
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .bottomContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .detailsActions {
+    bottom: 0px;
+  }
+  .productsNonImageContainer {
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+  }
+  .details {
+    width: 100%;
+    text-align: center;
+  }
+  .title {
+    width: 100%;
+  }
+  .image {
+    width: 80%;
+  }
+  title {
+    font-size: 15px;
+    text-align: center;
+  }
+  .desc p {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .Container {
+    margin-top: 2rem;
+  }
+  .ordersHeader a {
+    font-size: 12px;
+  }
+  .image{
+    width: 100%;
+  }
+  .image img {
+    height: 306px;
+}
+}
+
+@media screen and (max-width: 350px) {
+  .formContainer {
+    width: 100%;
+  }
+
+  .authContainer {
+    padding: 6px;
+  }
+  .subTotal {
+    font-size: 1.2rem;
+  }
+  .display {
+    display: none;
+  }
+  .ordersHeader h2 {
+    font-size: 1rem;
+  }
+  title {
+    font-size: 13px;
+  }
+  .desc p {
+    font-size: 12px;
   }
 }

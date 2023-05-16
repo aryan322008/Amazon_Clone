@@ -55,7 +55,6 @@ const getSearchItems = async (req, res) => {
         )
         .populate({ path: "search_items" });
 
-      console.log(final_searched_items._id, page);
 
       if (!searchItem.search_items.length) {
         res.send({ ...final_searched_items, search_items: "no items found" });
@@ -107,4 +106,3 @@ const fetchSearchItems = async (req, res) => {
 
 export { getSearchItems, fetchSearchItems };
 
-//slicing

@@ -6,16 +6,15 @@ import logo from "../../assets/images/amazon-logo.png";
 import { register, login } from "../../states/actions/authActions";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const dispatch = useDispatch();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({ admin: false });
   const [password, setPassword] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const Options = {
-    
     position: "top-right",
     autoClose: 3000,
     hideProgressBar: false,
@@ -24,8 +23,7 @@ const Auth = () => {
     draggable: false,
     progress: undefined,
     theme: "light",
-    
-};
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +52,7 @@ const Auth = () => {
         </div>
 
         <div className="formContainer">
-          <h2>{`${!isLoggedIn?"Create":"Login"}`} Account</h2>
+          <h2>{`${!isLoggedIn ? "Create" : "Login"}`} Account</h2>
           <form className="authForm" onSubmit={handleSubmit}>
             {/* Make a seprate components for input */}
 
@@ -85,7 +83,16 @@ const Auth = () => {
             </div>
 
             <div className="inputContainer">
-              <label for="password">Password</label>
+              <div className="w-100 d-flex justify-content-between align-items-center">
+                <label for="password">Password</label>
+
+                {isLoggedIn && (
+                  <Link to="/auth/forgot-password">
+                    <span className="forgotPass">Forgot Password</span>
+                  </Link>
+                )}
+              </div>
+
               <div
                 style={{
                   display: "flex",
@@ -130,7 +137,7 @@ const Auth = () => {
                 }
               />
               <label class="form-check-label" for="exampleCheck1">
-              {`${!isLoggedIn?"Make me Admin":"Create new Admin id"}`}
+                {`${!isLoggedIn ? "Make me Admin" : "Create new Admin id"}`}
               </label>
             </div>
 
@@ -177,4 +184,3 @@ const Auth = () => {
 };
 
 export default Auth;
-

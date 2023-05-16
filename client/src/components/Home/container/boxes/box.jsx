@@ -7,7 +7,7 @@ const Box = ({ txt, price, rating, img, id, index, color, desc, author }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(addCartItem({ id }));
+    dispatch(addCartItem({ id, qty:1 }));
   };
 
   return (

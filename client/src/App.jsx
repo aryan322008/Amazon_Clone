@@ -10,8 +10,11 @@ import Products from "./components/admin/your_products/productsContainer";
 import AdminLogin from "./components/admin/login/form";
 import Home from "./components/Home/Home";
 import ProductDetails from "./components/productDetails/productDetails";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ForgotPassword from "./components/auth/forgotPassword/forgotPassword";
+import Verify_resetPassword from "./components/auth/verify_resetPassword/resetPassword"
+import Message from "./components/message/message"
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -95,6 +98,31 @@ const App = () => {
             <>
               <Navbar />
               <ProductDetails />
+            </>
+          }
+        />
+        <Route
+          path="/auth/forgot-password"
+          element={
+            <>
+              <ForgotPassword />
+            </>
+          }
+        />
+        <Route
+          path="/forgot-password/verify"
+          element={
+            <>
+              <Verify_resetPassword/>
+            </>
+          }
+        />
+
+        <Route
+          path="/message/:id"
+          element={
+            <>
+              <Message/>
             </>
           }
         />

@@ -44,7 +44,7 @@ const login =
             ? toast(`${data.adminId} Your Admin Id`, Options)
             : toast(`logged in successfully`, Options);
           dispatch({ type: "LOGIN", payload: data });
-       
+
           setTimeout(() => {
             navigate("/");
           }, 3000);
@@ -88,4 +88,47 @@ const checkAdmin =
     }
   };
 
-export { register, login, checkAdmin };
+const forgotPassword =
+  ({ email, Options, navigate }) =>
+  async (dispatch) => {
+    const data = await api
+      .forgotPassword(email)
+      .then(({data}) => {
+        if(data.userEmailSent){
+          navigate("/forgot-password/verify");
+        }
+      })
+      .catch(({ response }) => {
+        if (response.data.errors) {
+          response.data.errors.map((element, index) => {
+            toast.error(`${(index, element.msg)}`, Options);
+          });
+        }
+      });
+  };
+
+  
+const resetPassword =
+  ({ veriCode, newPass , email, Options, navigate }) =>
+  async (dispatch) => {
+    const data = await api
+      .resetPassword({veriCode, newPass, email})
+      .then(({data}) => {
+        if(data.passwordchanged){
+          toast("Password Changed successfully", Options);
+
+          setTimeout(() => {
+            navigate("/auth");
+          }, 500);
+        }
+      })
+      .catch(({ response }) => {
+        if (response.data.errors) {
+          response.data.errors.map((element, index) => {
+            toast.error(`${(index, element.msg)}`, Options);
+          });
+        }
+      });
+  };
+
+export { register, login, checkAdmin, forgotPassword, resetPassword };

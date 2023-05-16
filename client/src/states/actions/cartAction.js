@@ -36,9 +36,9 @@ const addItem =
     }
   };
 
-const addCartItem = (itemDetail) => async (dispatch) => {
+const addCartItem = ({id, qty}) => async (dispatch) => {
   try {
-    const { data } = await api.addCartItem(itemDetail);
+    const { data } = await api.addCartItem({id, qty});
 
     dispatch({ type: "ADD", payload: data });
   } catch (error) {

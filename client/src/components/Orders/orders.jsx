@@ -78,7 +78,7 @@ const Orders = () => {
 
         setStatus("success");
 
-        const ordersHistoryArray = orders.map((product) => {
+        const ordersHistoryArray = await orders.map((product) => {
           return { item: product.item._id, qty: product.qty };
         });
 
@@ -94,7 +94,7 @@ const Orders = () => {
       }
     } catch (error) {
       setStatus("failure");
-      setPaymentProcessing(false)
+      setPaymentProcessing(false);
       setTimeout(() => {
         setStatus("");
       }, 5000);
@@ -129,7 +129,7 @@ const Orders = () => {
 
           <hr />
 
-          { orders.map((element, index) => {
+          {orders.map((element, index) => {
             return (
               <Products
                 title={element.item.title}

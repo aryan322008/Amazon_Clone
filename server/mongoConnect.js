@@ -1,7 +1,9 @@
-import { connect } from 'mongoose';
+import { connect } from "mongoose";
 
- const main = async () => {
-  await connect('mongodb://127.0.0.1:27017/shop');
-}
+const main = async () => {
+  await connect(
+    `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@aryale32.1xar56b.mongodb.net/shopDB?retryWrites=true&w=majority`
+  );
+};
 
-export default main
+export default main;

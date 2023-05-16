@@ -22,8 +22,8 @@ const fetchCartItem = async () => {
   return await API.get("/items/getCartItems");
 };
 
-const addCartItem = async (itemDetail) => {
-  return await API.post("/items/addCartItem", itemDetail);
+const addCartItem = async ({id, qty}) => {
+  return await API.post("/items/addCartItem", {id, qty});
 };
 
 const deleteCartItem = async (id) => {
@@ -87,6 +87,18 @@ const fetchDetails = async (id) => {
   return await API.get(`/product_details/${id}`);
 };
 
+const forgotPassword = async (email) => {
+  return await API.post(`/auth/forgot-password`, {email} );
+};
+
+const resetPassword = async ({veriCode, newPass, email}) => {
+  return await API.post(`/auth/reset-password`,{veriCode, newPass, email} );
+};
+
+const create_checkout_session = async ({id, qty}) => {
+  return await API.post("/payments/create-checkout-session", {id, qty});
+};
+
 export {
   fetchItem,
   fetchCartItem,
@@ -106,5 +118,8 @@ export {
   fetchHistory,
   getSearchItems,
   fetchSearchItems,
-  fetchDetails
+  fetchDetails, 
+  forgotPassword, 
+  resetPassword,
+  create_checkout_session
 };

@@ -6,40 +6,46 @@ const addOrdersInHistory = async (req, res) => {
   const user = req.user;
   const ordersObj = req.body;
 
-  const full_user = await userModal.findById(req.user);
+  try {
+    const full_user = await userModal.findById(req.user);
 
-  if (!full_user) {
-    res.status(404).send({ message: "User not found" });
-  }
+    if (!full_user) {
+      res.status(404).send({ message: "User not found" });
+    }
 
-  const orderedUser = await ordersModal.findOne({ user });
+    const orderedUser = await ordersModal.findOne({ user });
 
-  if (!orderedUser) {
-    const created_order = await ordersModal.create({
-      user,
-      orders: {
-        ...ordersObj,
-      },
-    });
-
-    const order = ordersModal
-      .findById(created_order._id)
-      .populate({ path: "orders.products.item" });
-
-    res.send({ name: full_user.name, orders: order });
-  } else {
-    const order = await ordersModal.findByIdAndUpdate(
-      orderedUser._id,
-      {
-        $push: {
-          orders: {
-            ...ordersObj,
-          },
+    if (!orderedUser) {
+      const created_order = await ordersModal.create({
+        user,
+        orders: {
+          ...ordersObj,
         },
-      },
-      { new: true }
-    ) .populate({ path: "orders.products.item" });
-    res.send({ name: user.name, orders: order.orders });
+      });
+
+      const order = ordersModal
+        .findById(created_order._id)
+        .populate({ path: "orders.products.item" });
+
+      res.send({ name: full_user.name, orders: order });
+    } else {
+      const order = await ordersModal
+        .findByIdAndUpdate(
+          orderedUser._id,
+          {
+            $push: {
+              orders: {
+                ...ordersObj,
+              },
+            },
+          },
+          { new: true }
+        )
+        .populate({ path: "orders.products.item" });
+      res.send({ name: user.name, orders: order.orders });
+    }
+  } catch (error) {
+    res.status(404).send({ message: error });
   }
 };
 
@@ -88,23 +94,43 @@ const fecthOrders = async (req, res) => {
     .findOne({ user })
     .populate({ path: "orders.item" });
 
-  res.send(orders.orders);
+  if (!orders) {
+    const orders = await currentOrdersModal.create({
+      user,
+      orders: [],
+    });
+
+    res.send(orders.orders);
+  } else {
+    res.send(orders.orders);
+  }
+
 };
 
 const fetchOrdersInHistory = async (req, res) => {
   const user = req.user;
 
-  const full_user = await userModal.findById(req.user);
+  try {
+    const full_user = await userModal.findById(req.user);
 
-  if (!full_user) {
-    res.status(404).send({ message: "User not found" });
+    if (!full_user) {
+      res.status(404).send({ message: "User not found" });
+    }
+
+    const order = await ordersModal
+      .findOne({ user })
+      .populate({ path: "orders.products.item" });
+
+    res.status(200).json({ name: full_user.name, orders: order.orders });
+
+  } catch (error) {
+    res.status(404).send({ message: error });
   }
+};
 
-  const order = await ordersModal
-    .findOne({ user })
-    .populate({ path: "orders.products.item" });
-
-    res.send({ name: full_user.name, orders: order.orders });
-}
-
-export { addOrdersInHistory, addOrdersInCurrent, fecthOrders, fetchOrdersInHistory };
+export {
+  addOrdersInHistory,
+  addOrdersInCurrent,
+  fecthOrders,
+  fetchOrdersInHistory,
+};

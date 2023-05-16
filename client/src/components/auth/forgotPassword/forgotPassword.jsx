@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { checkAdmin } from "../../../states/actions/authActions";
+import React,{useState, useEffect} from "react";
+import FormComponent from "../../admin/login/formContainer/formComponent";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import FormComponent from "./formContainer/formComponent";
+import {forgotPassword} from "../../../states/actions/authActions"
 
-const Form = () => {
+const ForgotPassword = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [formData, setformData] = useState({
+    email: "",
+  });
 
   useEffect(() => {
     const user = localStorage.getItem("user");
@@ -13,10 +18,6 @@ const Form = () => {
       navigate("/auth");
     }
   }, []);
-
-  const [formData, setformData] = useState({
-    adminId: "",
-  });
 
   const Options = {
     position: "top-right",
@@ -29,30 +30,29 @@ const Form = () => {
     theme: "light",
   };
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    dispatch(checkAdmin({ formData, Options, navigate }));
-  };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setformData({ ...formData, [name]: value });
   };
 
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      
+      dispatch(forgotPassword({email:formData.email, Options, navigate}))
+
+  };
+
   return (
     <>
-      <FormComponent 
-        handleSubmit={handleSubmit}
+      <FormComponent
         handleChange={handleChange}
-        title={"Log in as a Admin"}
-        fieldLabel={"Admin Id"}
-        fieldName={"adminId"}
+        handleSubmit={handleSubmit}
+        title={"Send Verification Code to your email"}
+        fieldLabel={"Email"}
+        fieldName={"email"}
       />
     </>
   );
 };
 
-export default Form;
+export default ForgotPassword;
