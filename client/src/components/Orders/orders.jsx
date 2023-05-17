@@ -53,7 +53,7 @@ const Orders = () => {
     const getClientSecret = async () => {
       if (price != 0) {
         const { data } = await axios.post(
-          `http://localhost:5000/payments/create?total=${price * 100}`
+          `https://aryan-amazon-clone.onrender.com/payments/create?total=${price * 100}`
         );
         setClientSecret(data.clientSecret);
       }
