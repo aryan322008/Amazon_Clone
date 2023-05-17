@@ -73,7 +73,9 @@ const checkAdmin =
           toast(`${data.admin_verified && "You are verified"} `, Options);
           localStorage.setItem("admin_verified", data.admin_verified);
 
-          navigate("/admin/add_products");
+          setTimeout(() => {
+            navigate("/admin/add_products");
+          }, 1000);
         })
 
         .catch(({ response }) => {

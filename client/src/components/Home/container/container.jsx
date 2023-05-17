@@ -3,12 +3,23 @@ import Box from "./boxes/box";
 import { useSelector, useDispatch } from "react-redux";
 import { getItems } from "../../../states/actions/cartAction";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Container = () => {
   const dispatch = useDispatch();
   const searchDisplay = useSelector((state) => state.search_display);
 
+  const navigate  = useNavigate()
+
   const products = useSelector((state) => state.products);
+
+  useEffect(() => {
+    const user = localStorage.getItem("user")
+
+    if(!user){
+      navigate("/auth")
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(getItems());
@@ -23,7 +34,7 @@ const Container = () => {
 
           <h1 className="products_header">Latest Products</h1>
 
-          <Link to="/admin/add_products">
+          <Link to="/admin/login">
             <div className="link" style={{ width: "12%", textDecoration: "underline", color: "blue" }}>
               <span>Add Products</span>
             </div>

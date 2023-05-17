@@ -32,6 +32,9 @@ body {
 
 .logo img {
   width: 155px;
+}
+
+.color-invert{
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }

@@ -1,18 +1,10 @@
 import userModal from "../models/userModal.js";
-import bcrypt from "bcrypt";
+import bcrypt, { hash } from "bcrypt";
 import jwt from "jsonwebtoken";
 import { validationResult } from "express-validator";
 import uniqid from "uniqid";
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
-
-const oauth2Client = new google.auth.OAuth2(
-  process.env.YOUR_CLIENT_ID,
-  process.env.YOUR_CLIENT_SECRET,
-  process.env.YOUR_REDIRECT_URL
-);
-
-oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
@@ -107,7 +99,7 @@ const login = async (req, res) => {
           admin_id: hashedId,
         });
 
-        res.send({ adminId: adminId, token, email: updatedUser.email });
+        res.send({adminId: adminId,token, email: updatedUser.email });
       } else {
         res.send({ token, email: user.email });
       }
@@ -172,6 +164,15 @@ const forgotPassword = async (req, res) => {
       verification_code: hashedCode,
     });
 
+
+    const oauth2Client = new google.auth.OAuth2(
+      process.env.YOUR_CLIENT_ID,
+      process.env.YOUR_CLIENT_SECRET,
+      process.env.YOUR_REDIRECT_URL
+    );
+
+    oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+
     const accessToken = await oauth2Client.getAccessToken();
 
     const transporter = nodemailer.createTransport({
@@ -197,10 +198,13 @@ const forgotPassword = async (req, res) => {
     const info = await transporter.sendMail(mailOptions);
 
     res.send({ userEmailSent: true });
-  } catch (error) {
+  }
+  catch (error) {
     res.status(404).json({ errors: [{ msg: "Internal Error" }] });
   }
 };
+
+
 
 const resetPassword = async (req, res) => {
   const { veriCode, newPass, email } = req.body;

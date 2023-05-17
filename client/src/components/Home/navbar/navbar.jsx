@@ -75,7 +75,7 @@ const Navbar = () => {
 
       {/* logo for navbar  */}
       <div className="logo">
-        <img src={logo} />
+        <img src={logo}/>
         <span className="img_span">.in</span>
       </div>
 

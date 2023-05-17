@@ -47,7 +47,7 @@ const Auth = () => {
     <>
       <div className="authContainer">
         <div className="logo">
-          <img src={logo} />
+          <img src={logo} className="color-invert"  />
           <span className="img_span">.in</span>
         </div>
 
@@ -142,9 +142,7 @@ const Auth = () => {
             </div>
 
             <div className="policy">
-              By enrolling your mobile phone number, you consent to receive
-              automated security notifications via text message from Amazon.
-              Message and data rates may apply.
+              SignIn/SignUp to avoid uncecessary errors in app and to view the project smoothly without any possible bugs or lodings 
             </div>
 
             <button type="submit">Continue</button>
